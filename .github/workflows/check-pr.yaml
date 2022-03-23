@@ -1,21 +1,21 @@
-name: Build & Push Docker Image
+name: Build & Push Docker Backend Image
 
 on:
   push:
     branches:
     
-    - master
+    - main
   pull_request:
     branches:
     
-    - master
+    - main
 
 jobs:
 
   push_to_docker:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'skip ci')"
-    name: Build and Push Image to Image registry
+    name: Build and Push Backend Image to Image registry
     env:
       REGISTRY: docker.io
     defaults:
